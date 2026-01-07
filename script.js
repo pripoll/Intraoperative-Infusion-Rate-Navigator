@@ -1,3 +1,4 @@
+// Intraoperative Infusion Rate Navigator - Sync v3.4
 function executeInfusionCalc() {
     const weight = parseFloat(document.getElementById('weight').value);
     const npo = parseFloat(document.getElementById('npo').value);
