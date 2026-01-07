@@ -1,4 +1,4 @@
-// Intraoperative Infusion Rate Navigator - Sync v3.8
+// Intraoperative Infusion Rate Navigator - Sync v3.9
 function executeInfusionCalc() {
     const weight = parseFloat(document.getElementById('weight').value);
     const npo = parseFloat(document.getElementById('npo').value);
@@ -9,15 +9,16 @@ function executeInfusionCalc() {
         return;
     }
 
-    // Strict Adult Validations with specific app range wording
     if (weight < 40 || weight > 160) {
-        alert('CRITICAL ERROR: Weight (' + weight + ' kg) is outside the range defined for this application (40-160 kg). Calculation halted.');
-        return;
+        if (!confirm('The entered weight (' + weight + ' kg) is outside the range defined for this application (40-160 kg). Do you want to proceed with this calculation?')) {
+            return;
+        }
     }
 
     if (npo > 12) {
-        alert('CRITICAL ERROR: Fasting duration (' + npo + ' hours) exceeds the range defined for this application (max 12h). Calculation halted.');
-        return;
+        if (!confirm('The fasting duration (' + npo + ' hours) exceeds the range defined for this application (max 12h). Do you want to proceed?')) {
+            return;
+        }
     }
 
     let maintenance = weight + 40;
