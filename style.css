@@ -139,3 +139,13 @@ input, select {
 .author-link:hover {
     text-decoration: underline;
 }
+.disclaimer-box {
+    margin-top: 20px;
+    font-size: 0.6rem;
+    line-height: 1.4;
+    color: var(--text-muted);
+    text-align: justify;
+    border: 1px solid var(--border-ui);
+    padding: 10px;
+    opacity: 0.7;
+}
