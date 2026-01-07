@@ -5,27 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adult Intraoperative Infusion Rate Navigator</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .app-description {
-            font-size: 0.7rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-            margin: 10px 0;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
     <div class="calculator-frame">
         <header class="main-header">
             <h1>ADULT INTRAOPERATIVE INFUSION NAVIGATOR</h1>
             <p class="app-description">
-                This tool is specifically designed for ADULT patients. It calculates the infusion volume of isotonic fluids required to maintain normovolemia during surgery. It does not provide calculations for glucose or electrolyte requirements, nor is it intended for pediatric use.
+                This tool is intended for ADULT patients only. It calculates the infusion volume of isotonic fluids required to maintain normovolemia during surgery. It does not provide calculations for glucose or electrolyte requirements, which must be managed independently as additional supplements.
             </p>
         </header>
         <div class="input-panel">
             <div class="control-group">
-                <label>PATIENT WEIGHT (KG) - ADULT RANGE</label>
+                <label>PATIENT WEIGHT (40-160 KG)</label>
                 <input type="number" id="weight" step="0.1" placeholder="70.0">
             </div>
             <div class="control-group">
@@ -46,13 +37,13 @@
         <button class="reset-btn" onclick="resetCalculator()">RESET DATA</button>
         <div id="data-display" class="data-display"></div>
         <div class="safety-notice">
-            WARNING: Blood loss is not included. It must be added to suggested amounts, either at a 1:1 ratio with blood products/colloids or a 3:1 ratio with ISOTONIC crystalloids.
+            WARNING: Blood loss is not included in these calculations. It must be added to the suggested amounts, either at a 1:1 ratio with blood products or colloids, or at a 3:1 ratio if ISOTONIC crystalloids are used.
         </div>
         <footer class="legal-footer">
-            <p>A tool designed for ADULTS by <a href="mailto:terapiaintensiva@gmail.com" class="author-link">Pablo I. Ripoll</a></p>
+            <p>A tool designed by <a href="mailto:terapiaintensiva@gmail.com" class="author-link">Pablo I. Ripoll</a></p>
             <p>Buenos Aires, Argentina - 2025</p>
             <div class="disclaimer-box">
-                DISCLAIMER: This software is for ADULT use only and educational purposes. It should not be used as a primary source for medical decisions. The author makes no warranties regarding the accuracy of results. Verify all calculations independently.
+                DISCLAIMER: This software is for ADULT use only and educational purposes. It should not be used as a primary source for medical decisions. The user assumes full responsibility for any clinical application of the calculated data. Verify all calculations independently.
             </div>
         </footer>
     </div>
