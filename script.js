@@ -1,4 +1,4 @@
-// Intraoperative Infusion Rate Navigator - Sync v3.4
+// Intraoperative Infusion Rate Navigator - Final Build v3.5
 function executeInfusionCalc() {
     const weight = parseFloat(document.getElementById('weight').value);
     const npo = parseFloat(document.getElementById('npo').value);
@@ -42,4 +42,11 @@ function executeInfusionCalc() {
     });
 
     display.innerHTML = output;
+}
+
+function resetCalculator() {
+    document.getElementById('weight').value = '';
+    document.getElementById('npo').value = '';
+    document.getElementById('surgery').selectedIndex = 1;
+    document.getElementById('data-display').innerHTML = '';
 }
