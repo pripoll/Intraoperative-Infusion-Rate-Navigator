@@ -1,44 +1,52 @@
+He actualizado el diseño de la aplicación para que coincida con la estética de los calculadores balísticos que hemos desarrollado anteriormente, alejándome del esquema de colores de alto contraste que resultó insatisfactorio. Esta nueva interfaz utiliza una paleta de tonos carbón, grises tácticos y acentos en azul acero, lo que proporciona una visualización más profesional y equilibrada para el entorno de quirófano. Se han mantenido estrictamente los requerimientos funcionales de las seis horas de duración y la eliminación de la entrada de pérdida sanguínea en la lógica de cálculo, integrando la advertencia de seguridad requerida en la parte inferior del panel.
+
+El contenido del archivo index.html es el siguiente:
+
+HTML
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculador de Fluidos Quirúrgicos</title>
+    <title>Fluid Management System - Tactical</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>CALCULADOR DE FLUIDOS PERIOPERATORIOS</h1>
-        <div class="input-group">
-            <label>Peso del Paciente (kg)</label>
-            <input type="number" id="weight" placeholder="Ej: 70">
+    <div class="app-container">
+        <header class="app-header">
+            <div class="system-status">SYSTEM READY</div>
+            <h1>FLUID MANAGEMENT v2.0</h1>
+        </header>
+        
+        <div class="input-section">
+            <div class="field-group">
+                <label>PESO DEL PACIENTE (KG)</label>
+                <input type="number" id="weight" placeholder="0.0">
+            </div>
+            <div class="field-group">
+                <label>AYUNO ACUMULADO (HORAS NPO)</label>
+                <input type="number" id="npo" placeholder="0.0">
+            </div>
+            <div class="field-group">
+                <label>INVASIVIDAD QUIRÚRGICA</label>
+                <select id="surgery">
+                    <option value="1">MÍNIMA (Sencilla, ej: Quiste)</option>
+                    <option value="3" selected>LEVE (Abdominal baja, ej: Apéndice)</option>
+                    <option value="5.5">MODERADA (Ej: Colecistectomía)</option>
+                    <option value="9">SEVERA (Ej: Torácica / Intestinal)</option>
+                </select>
+            </div>
         </div>
-        <div class="input-group">
-            <label>Horas de Ayuno (NPO)</label>
-            <input type="number" id="npo" placeholder="Ej: 8">
-        </div>
-        <div class="input-group">
-            <label>Invasividad de la Cirugía</label>
-            <select id="surgery">
-                <option value="1">Superficial (0-1 ml/kg/hr) - Ej: Hernia, Quiste</option>
-                <option value="3" selected>Mínima (2-4 ml/kg/hr) - Ej: Apendicectomía</option>
-                <option value="5.5">Moderada (5-6 ml/kg/hr) - Ej: Colecistectomía</option>
-                <option value="9">Severa (8-10 ml/kg/hr) - Ej: Resección Intestinal</option>
-            </select>
-        </div>
-        <div class="input-group">
-            <label>Pérdida Sanguínea Estimada (ml)</label>
-            <input type="number" id="bloodLoss" value="0">
-        </div>
-        <div class="input-group">
-            <label>Tipo de Reposición Sanguínea</label>
-            <select id="fluidType">
-                <option value="3">Cristaloide (3:1)</option>
-                <option value="1">Coloide/Sangre (1:1)</option>
-            </select>
-        </div>
-        <button onclick="calculateFluids()">CALCULAR REPOSICIÓN</button>
-        <div id="results" class="results-area"></div>
+
+        <button class="calc-btn" onclick="calculateFluids()">EJECUTAR CÁLCULO</button>
+
+        <div id="results" class="display-grid">
+            </div>
+
+        <footer class="safety-footer">
+            <p>ADVERTENCIA: La pérdida sanguínea no se halla contemplada en estos cálculos. Deberá añadirse a lo que la app sugiere, ya sea en relación 1:1 con hemoderivados o coloides, o en relación 3:1 si se usaran cristaloides.</p>
+        </footer>
     </div>
     <script src="script.js"></script>
 </body>
