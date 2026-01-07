@@ -1,16 +1,16 @@
-// Intraoperative Infusion Rate Navigator - Sync v3.9
+// Intraoperative Infusion Rate Navigator - Final Fix v4.0
 function executeInfusionCalc() {
     const weight = parseFloat(document.getElementById('weight').value);
     const npo = parseFloat(document.getElementById('npo').value);
     const evapRate = parseFloat(document.getElementById('surgery').value);
 
     if (isNaN(weight) || isNaN(npo)) {
-        alert('DATA ERROR: Please provide valid patient parameters.');
+        alert('DATA ERROR: Please enter valid patient parameters.');
         return;
     }
 
     if (weight < 40 || weight > 160) {
-        if (!confirm('The entered weight (' + weight + ' kg) is outside the range defined for this application (40-160 kg). Do you want to proceed with this calculation?')) {
+        if (!confirm('The entered weight (' + weight + ' kg) is outside the range defined for this application (40-160 kg). Do you want to proceed?')) {
             return;
         }
     }
